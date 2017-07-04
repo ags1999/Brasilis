@@ -1,6 +1,5 @@
 local game = {}
 local enemy = require "enemy"
-
 local girl_walk  = require "girl"
 local alien_move = require "alien"
  sucess = love.window.setMode(800, 600, {resizable = true})
@@ -32,7 +31,7 @@ function game.load()
   imagem_height = imagem_ground : getHeight()
   
   fonte         = love.graphics.newImageFont("Fonte.png", " abcdefghijklmnopqrstuvwxyz" .. "ABCDEFGHIJKLMNOPQRSTUVWXYZ0" .. "123456789.,!?-+/():;%&`'*#=[]\"")
-
+  
   music = love.audio.newSource( 'samba.mp3', 'static' )
 end 
 function game.update(dt)
@@ -46,7 +45,7 @@ function game.keyreleased(key)
 end
 
 function game.draw()
- love.graphics.draw(background, 0, 00, 0,1.78,5)
+love.graphics.draw(background, 0, 00, 0,1.78,5)
 
  love.graphics.draw (imagem_Cloud,140,-50)
  love.graphics.draw (imagem_Cloud,490,-50)
@@ -56,7 +55,7 @@ function game.draw()
  love.graphics.setFont(fonte)
  love.graphics.print("Pontuacao :", 10, 10, 0, 1, 1, 0, 2, 0, 0)
  love.graphics.print(pontos, 120, 14, 0, scaleX, scaleY, 5, 5, 0, 0)
- love.graphics.print("Vidas : ", 10, 40)
+ love.graphics.print("vidas : ", 10, 40)
  love.graphics.print(vidas, 80, 40)
  
  girl_walk.draw()

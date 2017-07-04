@@ -43,7 +43,7 @@ end
 function love.changeToMenu()
   state = menu
 end
-function GameOver()
+function GameOver(vidas)
   if vidas == 0 then
    love.load()
   end

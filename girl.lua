@@ -42,7 +42,8 @@ end
 function colisao  (dt)
   local tirow,tiroh = 10,10
   local enemyw,enemyh = imgEnemy[1]:getDimensions()
-  for i, enemies in ipairs(enemy) do
+  for i=#enemy, 1, -1 do
+    enemies = enemy[i]
     for j, tiro in ipairs(tiros) do 
         if checaColisao(enemies.x-enemyw/16, enemies.y-enemyh/16, enemyw,enemyh, tiro.x-tirow/2, tiro.y-tiroh/2, tirow/8, tiroh/8) then
           table.remove(tiros, j)
@@ -63,7 +64,8 @@ function estaVivo (dt)
    if not Alive and love.keyboard.isDown("r") then
      
      tiros   = {}
-     enemies = {}
+     for i=#enemy, 1, -1 do
+       table.remove(enemy, i)
       
      atira = timeAtirar
      enemy.SpawnTime = enemy.delay
@@ -73,6 +75,7 @@ function estaVivo (dt)
      
      Alive  = true
      pontos = 0
+   end
   end
  end
 function Efeito   (dt)
@@ -202,5 +205,4 @@ function girl_walk.draw()
   end 
   -- Desenho do tiro
 end
-
   return girl_walk
